@@ -2,7 +2,7 @@
 
 This project is an end-to-end SQL and Streamlit analytics project built from two source tables: `customer_orders` and `order_line_items`.
 
-It creates a final reporting table called `ecommerce_customer_product_metrics` using SQL Common Table Expressions (CTEs), aggregations, joins, conditional logic, and window functions. MySQL 8 supports CTEs with the `WITH` clause, and Streamlit apps can be deployed directly from a GitHub repository on Streamlit Community Cloud.[cite:186][cite:202]
+It creates a final reporting table called `ecommerce_customer_product_metrics` using SQL Common Table Expressions (CTEs), aggregations, joins, conditional logic, and window functions. MySQL 8 supports CTEs with the `WITH` clause, and Streamlit apps can be deployed directly from a GitHub repository on Streamlit Community Cloud.
 
 ## Project Overview
 
@@ -26,7 +26,7 @@ The project combines order-level and line-item-level data into a single analytic
 
 ## Data pipeline
 
-The SQL transformation follows a layered approach using CTEs, which improves readability and lets complex logic be broken into named steps.[cite:186][cite:190]
+The SQL transformation follows a layered approach using CTEs, which improves readability and lets complex logic be broken into named steps.
 
 ### Main SQL steps
 
@@ -37,7 +37,7 @@ The SQL transformation follows a layered approach using CTEs, which improves rea
 5. `customer_monthly` calculates monthly customer metrics.
 6. `customer_lifetime` calculates lifetime orders, units, revenue, and customer segment.
 7. `product_monthly` calculates monthly product performance.
-8. `product_ranked` ranks products by category and month using `ROW_NUMBER()`.[cite:191][cite:194]
+8. `product_ranked` ranks products by category and month using `ROW_NUMBER()`.
 9. `order_kpis` builds monthly KPI totals.
 10. `final_table` combines customer, order, and product metrics into a reporting-ready table.
 
@@ -52,7 +52,7 @@ The SQL transformation follows a layered approach using CTEs, which improves rea
 | Visualization | Plotly |
 | DB connection | SQLAlchemy + PyMySQL |
 
-Streamlit supports sidebars, markdown, tabs, and database-connected app layouts for interactive Python dashboards.[cite:128][cite:170]
+Streamlit supports sidebars, markdown, tabs, and database-connected app layouts for interactive Python dashboards.
 
 ## Project structure
 
@@ -90,16 +90,6 @@ pip install streamlit pandas plotly sqlalchemy pymysql
 streamlit run app.py
 ```
 
-## Deployment
-
-This project can be pushed to GitHub and deployed through Streamlit Community Cloud by selecting the repository, branch, and main app file during deployment.[cite:202][cite:207][cite:210]
-
-### Recommended deployment notes
-
-- Do not keep production credentials hardcoded in the public repo.
-- Use Streamlit secrets for deployed database credentials.[cite:154][cite:155]
-- Replace `localhost` with your hosted MySQL server when deploying.
-
 ## Business questions this project answers
 
 - How much revenue is generated each month?
@@ -107,17 +97,6 @@ This project can be pushed to GitHub and deployed through Streamlit Community Cl
 - Which products and categories perform best?
 - What share of revenue comes from each customer?
 - How do returns, units sold, and order activity change over time?
-
-## Portfolio value
-
-This project demonstrates practical analytics engineering and dashboarding skills:
-
-- SQL joins across two relational tables.
-- Multi-step transformation using CTEs.
-- Window functions for ranking products.[cite:191][cite:194]
-- KPI design for executive dashboards.
-- Streamlit-based frontend for business reporting.
-- Exportable filtered data for downstream analysis.
 
 ## Requirements file
 
@@ -129,6 +108,4 @@ sqlalchemy
 pymysql
 ```
 
-## Notes
-
-A cleaner production design is often to separate customer-level and product-level reporting tables instead of joining all product rows to every customer-month row. That is especially important when joining ranked product tables, because broad joins can multiply rows and distort metrics.[cite:186][cite:191]
+customer-month row. That is especially important when joining ranked product tables, because broad joins can multiply rows and distort metrics.[cite:186][cite:191]
